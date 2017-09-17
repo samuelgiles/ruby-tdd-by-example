@@ -6,12 +6,12 @@ require 'dollar'
 describe Dollar do
   describe '#times' do
     let(:five) { described_class.new(5) }
+    let(:ten_dollars) { described_class.new(10) }
+    let(:fifteen_dollars) { described_class.new(15) }
 
     specify do
-      product = five.times(2)
-      expect(product.amount).to eq 10
-      product = five.times(3)
-      expect(product.amount).to eq 15
+      expect(five.times(2)).to eq ten_dollars
+      expect(five.times(3)).to eq fifteen_dollars
     end
   end
 
