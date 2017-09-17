@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class Franc
+require 'money'
+
+class Franc < Money
   def initialize(amount)
     self.amount = amount
   end
@@ -8,12 +10,4 @@ class Franc
   def times(multiplier)
     Franc.new(amount * multiplier)
   end
-
-  def ==(other)
-    amount == other.amount
-  end
-
-  protected
-
-  attr_accessor :amount
 end
