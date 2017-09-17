@@ -16,8 +16,8 @@ describe Dollar do
   end
 
   describe '==' do
-    let(:dollar_a) { Dollar.new(5) }
-    let(:dollar_b) { Dollar.new(5) }
+    let(:dollar_a) { described_class.new(5) }
+    let(:dollar_b) { described_class.new(5) }
 
     context 'when dollars are equal' do
       specify do
@@ -26,7 +26,7 @@ describe Dollar do
     end
 
     context 'when dollars are not equal' do
-      let(:dollar_b) { Dollar.new(10) }
+      let(:dollar_b) { described_class.new(10) }
 
       specify do
         expect(dollar_a).not_to eq dollar_b
