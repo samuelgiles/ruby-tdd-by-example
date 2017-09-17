@@ -14,4 +14,23 @@ describe Dollar do
       expect(product.amount).to eq 15
     end
   end
+
+  describe '==' do
+    let(:dollar_a) { Dollar.new(5) }
+    let(:dollar_b) { Dollar.new(5) }
+
+    context 'when dollars are equal' do
+      specify do
+        expect(dollar_a).to eq dollar_b
+      end
+    end
+
+    context 'when dollars are not equal' do
+      let(:dollar_b) { Dollar.new(10) }
+
+      specify do
+        expect(dollar_a).not_to eq dollar_b
+      end
+    end
+  end
 end

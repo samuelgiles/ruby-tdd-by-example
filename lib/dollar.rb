@@ -9,5 +9,9 @@ class Dollar
     Dollar.new(amount * multiplier)
   end
 
+  def ==(object)
+    amount == object.amount
+  end
+
   attr_accessor :amount
 end
