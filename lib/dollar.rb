@@ -6,7 +6,7 @@ class Dollar
   end
 
   def times(multiplier)
-    self.amount *= multiplier
+    Dollar.new(amount * multiplier)
   end
 
   attr_accessor :amount
