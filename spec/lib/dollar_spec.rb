@@ -15,7 +15,7 @@ describe Dollar do
     end
   end
 
-  describe '==' do
+  describe '#==' do
     subject(:dollar_a) { Money.dollar(5) }
     let(:dollar_b) { Money.dollar(5) }
 
@@ -28,5 +28,11 @@ describe Dollar do
 
       it { is_expected.not_to eq dollar_b }
     end
+  end
+
+  describe '#currency' do
+    subject(:dollar_a) { Money.dollar(5).currency }
+
+    it { is_expected.to eq 'USD' }
   end
 end

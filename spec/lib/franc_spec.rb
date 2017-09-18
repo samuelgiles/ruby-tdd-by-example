@@ -15,7 +15,7 @@ describe Franc do
     end
   end
 
-  describe '==' do
+  describe '#==' do
     subject(:franc_a) { Money.franc(5) }
     let(:franc_b) { Money.franc(5) }
 
@@ -28,5 +28,11 @@ describe Franc do
 
       it { is_expected.not_to eq franc_b }
     end
+  end
+
+  describe '#currency' do
+    subject(:dollar_a) { Money.franc(5).currency }
+
+    it { is_expected.to eq 'CHF' }
   end
 end

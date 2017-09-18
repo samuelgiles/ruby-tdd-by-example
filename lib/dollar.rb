@@ -3,11 +3,11 @@
 require 'money'
 
 class Dollar < Money
-  def initialize(amount)
-    self.amount = amount
+  def initialize(amount, currency)
+    super(amount, currency)
   end
 
   def times(multiplier)
-    Dollar.new(amount * multiplier)
+    Money.dollar(amount * multiplier)
   end
 end
