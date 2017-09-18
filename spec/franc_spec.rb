@@ -5,9 +5,9 @@ require 'franc'
 
 describe Franc do
   describe '#times' do
-    let(:five) { described_class.new(5) }
-    let(:ten_francs) { described_class.new(10) }
-    let(:fifteen_francs) { described_class.new(15) }
+    let(:five) { Money.franc(5) }
+    let(:ten_francs) { Money.franc(10) }
+    let(:fifteen_francs) { Money.franc(15) }
 
     specify do
       expect(five.times(2)).to eq ten_francs
@@ -16,15 +16,15 @@ describe Franc do
   end
 
   describe '==' do
-    subject(:franc_a) { described_class.new(5) }
-    let(:franc_b) { described_class.new(5) }
+    subject(:franc_a) { Money.franc(5) }
+    let(:franc_b) { Money.franc(5) }
 
     context 'when francs are equal' do
       it { is_expected.to eq franc_b }
     end
 
     context 'when francs are not equal' do
-      let(:franc_b) { described_class.new(10) }
+      let(:franc_b) { Money.franc(10) }
 
       it { is_expected.not_to eq franc_b }
     end
