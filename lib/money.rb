@@ -15,11 +15,11 @@ class Money
   end
 
   def self.dollar(amount)
-    ::Dollar.new(amount, 'USD')
+    new(amount, 'USD')
   end
 
   def self.franc(amount)
-    ::Franc.new(amount, 'CHF')
+    new(amount, 'CHF')
   end
 
   attr_reader :currency

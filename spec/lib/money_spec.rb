@@ -2,8 +2,6 @@
 
 require 'spec_helper'
 require 'money'
-require 'franc'
-require 'dollar'
 
 describe Money do
   describe '#==' do
@@ -39,5 +37,29 @@ describe Money do
     let(:twenty_five) { Money.new(25, 'USD') }
 
     it { is_expected.to eq twenty_five }
+  end
+
+  describe '.franc' do
+    subject(:franc) { described_class.franc(10) }
+
+    let(:ten_francs) { Money.new(10, 'CHF') }
+
+    it { is_expected.to eq ten_francs }
+  end
+
+  describe '.dollar' do
+    subject(:dollar) { described_class.dollar(10) }
+
+    let(:ten_dollars) { Money.new(10, 'USD') }
+
+    it { is_expected.to eq ten_dollars }
+  end
+
+  describe '#currency' do
+    subject(:currency) { described_class.dollar(10).currency }
+
+    let(:ten_dollars) { Money.new(10, 'USD') }
+
+    it { is_expected.to eq 'USD' }
   end
 end
