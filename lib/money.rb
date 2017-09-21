@@ -7,7 +7,11 @@ class Money
   end
 
   def ==(other)
-    amount == other.amount && self.class == other.class
+    amount == other.amount && currency == other.currency
+  end
+
+  def times(multiplier)
+    Money.new(amount * multiplier, currency)
   end
 
   def self.dollar(amount)

@@ -31,4 +31,13 @@ describe Money do
       end
     end
   end
+
+  describe '#times' do
+    subject(:times) { money.times(5) }
+
+    let(:money) { described_class.new(5, 'USD') }
+    let(:twenty_five) { Money.new(25, 'USD') }
+
+    it { is_expected.to eq twenty_five }
+  end
 end
