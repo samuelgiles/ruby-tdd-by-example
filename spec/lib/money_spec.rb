@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'expression'
 require 'money'
 require 'bank'
+require 'sum'
 
 describe Money do
   describe '#==' do
@@ -73,5 +75,22 @@ describe Money do
     let(:bank) { Bank.new }
 
     it { is_expected.to eq ten_dollars }
+
+    specify do
+      expect(sum).to be_an_instance_of(Sum)
+      expect(sum.augend).to eq five_dollars
+      expect(sum.addend).to eq five_dollars
+    end
+
+    context 'with 3 and 4' do
+      let(:three_dollars) { described_class.dollar(3) }
+      let(:four_dollars) { described_class.dollar(4) }
+      let(:seven_dollars) { described_class.dollar(7) }
+      let(:sum) { three_dollars.plus(four_dollars) }
+
+      specify do
+        expect(reduced).to eq seven_dollars
+      end
+    end
   end
 end

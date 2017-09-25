@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'expression'
-
 class Money
   def initialize(amount, currency)
     self.amount = amount
@@ -27,9 +25,10 @@ class Money
   end
 
   attr_reader :currency
+  attr_reader :amount
 
   protected
 
   attr_writer :currency
-  attr_accessor :amount
+  attr_writer :amount
 end
