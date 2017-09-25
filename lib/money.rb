@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
+require 'expression'
+
 class Money
   def initialize(amount, currency)
     self.amount = amount
     self.currency = currency
   end
+
+  include Expression
 
   def ==(other)
     amount == other.amount && currency == other.currency

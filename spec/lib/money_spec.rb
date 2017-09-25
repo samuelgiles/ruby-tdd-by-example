@@ -2,6 +2,7 @@
 
 require 'spec_helper'
 require 'money'
+require 'bank'
 
 describe Money do
   describe '#==' do
@@ -61,5 +62,16 @@ describe Money do
     let(:ten_dollars) { Money.new(10, 'USD') }
 
     it { is_expected.to eq 'USD' }
+  end
+
+  describe '#plus' do
+    subject(:reduced) { bank.reduce(sum, 'USD') }
+
+    let(:five_dollars) { described_class.dollar(5) }
+    let(:ten_dollars) { described_class.dollar(10) }
+    let(:sum) { five_dollars.plus(five_dollars) }
+    let(:bank) { Bank.new }
+
+    it { is_expected.to eq ten_dollars }
   end
 end
