@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'expression'
 require 'money'
+require 'pair'
 require 'bank'
 require 'sum'
 
@@ -91,6 +92,18 @@ describe Money do
       specify do
         expect(reduced).to eq seven_dollars
       end
+    end
+
+    context 'with mixed currencies' do
+      subject(:result) { bank.reduce(five_dollars.plus(ten_francs), 'USD') }
+
+      let(:ten_francs) { described_class.franc(10) }
+
+      before do
+        bank.add_rate('CHF', 'USD', 2)
+      end
+
+      it { is_expected.to eq Money.dollar(10) }
     end
   end
 end
