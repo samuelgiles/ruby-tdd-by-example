@@ -16,6 +16,11 @@ class Money
     Money.new(amount * multiplier, currency)
   end
 
+  def reduce(bank, to)
+    rate = bank.rate(currency, to)
+    Money.new(amount / rate, to)
+  end
+
   def self.dollar(amount)
     new(amount, 'USD')
   end

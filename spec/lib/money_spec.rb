@@ -82,7 +82,7 @@ describe Money do
       expect(sum.addend).to eq five_dollars
     end
 
-    context 'with 3 and 4' do
+    context 'with 3 dollars and 4 dollars' do
       let(:three_dollars) { described_class.dollar(3) }
       let(:four_dollars) { described_class.dollar(4) }
       let(:seven_dollars) { described_class.dollar(7) }
