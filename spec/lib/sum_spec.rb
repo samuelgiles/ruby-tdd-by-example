@@ -24,12 +24,4 @@ describe Sum do
 
     it { is_expected.to eq Money.dollar(20) }
   end
-
-  describe '#plus' do
-    context 'with the same currency returns Money' do
-      subject(:sum) { Money.dollar(1).plus(Money.dollar(1)) }
-
-      it { is_expected.to be_an_instance_of(Money) }
-    end
-  end
 end
