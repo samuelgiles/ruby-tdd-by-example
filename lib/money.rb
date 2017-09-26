@@ -6,22 +6,34 @@ class Money
     self.currency = currency
   end
 
+  include Expression
+
   def ==(other)
-    amount == other.amount && self.class == other.class
+    amount == other.amount && currency == other.currency
+  end
+
+  def times(multiplier)
+    Money.new(amount * multiplier, currency)
+  end
+
+  def reduce(bank, to)
+    rate = bank.rate(currency, to)
+    Money.new(amount / rate, to)
   end
 
   def self.dollar(amount)
-    ::Dollar.new(amount, 'USD')
+    new(amount, 'USD')
   end
 
   def self.franc(amount)
-    ::Franc.new(amount, 'CHF')
+    new(amount, 'CHF')
   end
 
   attr_reader :currency
+  attr_reader :amount
 
   protected
 
   attr_writer :currency
-  attr_accessor :amount
+  attr_writer :amount
 end
