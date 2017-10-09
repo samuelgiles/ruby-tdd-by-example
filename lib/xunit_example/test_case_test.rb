@@ -11,17 +11,24 @@ class TestCaseTest < TestCase
 
   def test_template_method
     test.run
-    assert 'set_up test_method tear_down ' == test.log
+    assert test.log == 'set_up test_method tear_down '
   end
 
   def test_result
     result = test.run
-    assert '1 run, 0 failed' == result.summary
+    assert result.summary == '1 run, 0 failed'
   end
 
   def test_failed_result
     test = WasRun.new('test_broken_method')
     result = test.run
-    assert '1 run, 1 failed' == result.summary
+    assert result.summary == '1 run, 1 failed'
+  end
+
+  def test_failed_result_formatting
+    result = TestResult.new
+    result.test_started
+    result.test_failed
+    assert result.summary == '1 run, 1 failed'
   end
 end

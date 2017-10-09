@@ -33,4 +33,12 @@ describe TestCaseTest do
       expect { test_case_test.run }.not_to raise_error Exception
     end
   end
+
+  describe '#test_failed_result_formatting' do
+    let(:name) { 'test_method' }
+
+    specify do
+      expect { test_case_test.test_failed_result_formatting }.not_to raise_error Exception
+    end
+  end
 end

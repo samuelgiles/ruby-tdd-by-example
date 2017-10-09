@@ -9,8 +9,12 @@ class TestCase
     result = TestResult.new
     result.test_started
     set_up
-    send(name)
-    tear_down
+    begin
+      send(name)
+      tear_down
+    rescue Exception => exception
+      result.test_failed
+    end
     result
   end
 
