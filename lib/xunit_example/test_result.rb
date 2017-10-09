@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+class TestResult
+  attr_accessor :run_count
+
+  def initialize
+    self.run_count = 0
+  end
+
+  def test_started
+    self.run_count += 1
+  end
+
+  def summary
+    "#{run_count} run, 0 failed"
+  end
+end
