@@ -9,13 +9,8 @@ class TestCaseTest < TestCase
     self.test = WasRun.new('test_method')
   end
 
-  def test_running
+  def test_template_method
     test.run
-    assert test.was_run
-  end
-
-  def test_set_up
-    test.run
-    assert test.was_set_up
+    assert 'set_up test_method tear_down ' == test.log
   end
 end
