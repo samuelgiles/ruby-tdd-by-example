@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'expression'
-require 'money'
-require 'pair'
-require 'bank'
-require 'sum'
+require 'money_example/expression'
+require 'money_example/money'
+require 'money_example/pair'
+require 'money_example/bank'
+require 'money_example/sum'
 
 describe Sum do
   describe '#times' do

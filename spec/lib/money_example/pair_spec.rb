@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'pair'
+require 'money_example/expression'
+require 'money_example/money'
+require 'money_example/pair'
+require 'money_example/bank'
+require 'money_example/sum'
 
 describe Pair do
   let(:pair) { described_class.new(from, to) }
