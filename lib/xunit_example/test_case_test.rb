@@ -1,12 +1,21 @@
 # frozen_string_literal: true
 
-module TestCaseTest
+class TestCaseTest < TestCase
   include Assertions
 
-  def self.test_running
-    test = WasRun.new("test_method")
-    assert !test.was_run
+  attr_accessor :test
+
+  def set_up
+    self.test = WasRun.new('test_method')
+  end
+
+  def test_running
     test.run
     assert test.was_run
+  end
+
+  def test_set_up
+    test.run
+    assert test.was_set_up
   end
 end

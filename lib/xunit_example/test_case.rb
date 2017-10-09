@@ -6,7 +6,11 @@ class TestCase
   end
 
   def run
+    set_up
     send(name)
+  end
+
+  def set_up
   end
 
   private

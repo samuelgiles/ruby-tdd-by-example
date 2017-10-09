@@ -7,9 +7,21 @@ require 'xunit_example/was_run'
 require 'xunit_example/test_case_test'
 
 describe TestCaseTest do
-  describe '.test_running' do
+  let(:test_case_test) { described_class.new(name) }
+
+  describe '#test_running' do
+    let(:name) { 'test_running' }
+
     specify do
-      expect { described_class.test_running }.not_to raise_error Exception
+      expect { test_case_test.run }.not_to raise_error Exception
+    end
+  end
+
+  describe '#test_set_up' do
+    let(:name) { 'test_set_up' }
+
+    specify do
+      expect { test_case_test.run }.not_to raise_error Exception
     end
   end
 end
